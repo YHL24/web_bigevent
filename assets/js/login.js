@@ -12,9 +12,10 @@ $(function () {
 	})
 
 	// 因为在login.hrml中导入了layui.js, 所以可以从 layui 中获取 form 对象
+	// !!! form 和 layer 是 layui 插件提供的内置模块
 	var form = layui.form
 	var layer = layui.layer
-	// 通过 form.verify() 函数自定义校验规则
+	// !!! 通过 form.verify() 函数自定义校验规则
 	form.verify({
 		// 自定义了一个叫做 pwd 校验规则
 		pwd: [/^[\S]{6,12}$/, '密码必须6到12位，且不能出现空格'],

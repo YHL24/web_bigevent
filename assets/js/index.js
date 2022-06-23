@@ -61,6 +61,7 @@ function renderAvatar(user) {
 	// 3. 按需渲染用户的头像
 	if (user.user_pic !== null) {
 		// 3.1 渲染图片头像
+		// 选中 .layui-nav-img元素，将其中的src属性值换为user.user_pic中的值并展示
 		$('.layui-nav-img').attr('src', user.user_pic).show()
 		$('.text-avatar').hide()
 	} else {

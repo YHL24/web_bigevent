@@ -23,7 +23,7 @@ $(function () {
 					return layer.msg('获取用户信息失败！')
 				}
 				// console.log(res)
-				// 调用 form.val() 快速为表单赋值
+				// !!! 调用 form.val() 快速为表单赋值，如果数据库中有用户的信息，即可快速为表单赋值
 				form.val('formUserInfo', res.data)
 			}
 		})
@@ -50,7 +50,7 @@ $(function () {
 					return layer.msg('更新用户信息失败！')
 				}
 				layer.msg('更新用户信息成功！')
-				// !!! 调用父页面中的方法，重新渲染用户的头像和用户的信息
+				// !!! 调用父页面index.js 中的方法，重新渲染用户的头像和用户的信息
 				window.parent.getUserInfo()
 			}
 		})

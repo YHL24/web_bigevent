@@ -12,8 +12,9 @@ $(function () {
 	})
 
 	// 因为在login.hrml中导入了layui.js, 所以可以从 layui 中获取 form 对象
-	// !!! form 和 layer 是 layui 插件提供的内置模块
+	// !!! form  是layui 插件提供的表单内置模块
 	var form = layui.form
+	// !!! layer 是layui 插件提供的弹出层内置模块
 	var layer = layui.layer
 	// !!! 通过 form.verify() 函数自定义校验规则
 	form.verify({
@@ -21,10 +22,8 @@ $(function () {
 		pwd: [/^[\S]{6,12}$/, '密码必须6到12位，且不能出现空格'],
 		// 校验两次密码是否一致的规则
 		repwd: function (value) {
-			// 通过形参拿到的是确认密码框中的内容
-			// 还需要拿到密码框中的内容
-			// 然后进行一次等于的判断
-			// 如果判断失败,则return一个提示消息即可
+			// !!! value 值为文本框中的值
+			// 通过形参拿到的是确认密码框中的内容,还需要拿到密码框中的内容,然后进行一次等于的判断, 如果判断失败,则return一个提示消息即可
 			// .reg-box [name=password] 属性选择器
 			var pwd = $('.reg-box [name=password]').val()
 			if (pwd !== value) {
@@ -39,6 +38,7 @@ $(function () {
 		e.preventDefault()
 		// 2. 发起Ajax的POST请求
 		var data = {
+			// [name=username]属性选择器
 			username: $('#form_reg [name=username]').val(),
 			password: $('#form_reg [name=password]').val()
 		}
@@ -52,23 +52,23 @@ $(function () {
 		})
 	})
 
-	// 监听登录表单的提交事件
+	// !!! 使用 submit事件 监听登录表单的提交事件
 	$('#form_login').submit(function (e) {
-		// 阻止默认提交行为
+		// !!! 阻止默认提交行为
 		e.preventDefault()
 		$.ajax({
 			url: '/api/login',
 			method: 'POST',
-			// 快速获取表单中的数据
+			// !!! 快速获取表单中的数据
 			data: $(this).serialize(),
 			success: function (res) {
 				if (res.status !== 0) {
-					return layer.msg('登录失败！')
+					return layer.msg(res.message)
 				}
 				layer.msg('登录成功！')
-				// 将登录成功得到的 token 字符串，保存到 localStorage 中
+				// !!! 将登录成功得到的 token 字符串，保存到 localStorage 中
 				localStorage.setItem('token', res.token)
-				// 跳转到后台主页
+				// !!! 跳转到后台主页
 				location.href = './index.html'
 			}
 		})

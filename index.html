@@ -51,20 +51,21 @@
           <span id="welcome">欢迎 ***</span>
         </div>
 
+        <!-- lay-shrink="all" 控制是否收缩兄弟节点已展开的菜单,删掉不收缩 -->
         <ul class="layui-nav layui-nav-tree" lay-shrink="all">
           <li class="layui-nav-item layui-this">
             <a href="./home/dashboard.html" target="fm"><span class="iconfont icon-home"></span>首页</a>
           </li>
           <li class="layui-nav-item">
             <a class="" href="javascript:;"><span class="iconfont icon-16"></span>文章管理</a>
-            <dl class="layui-nav-child">
+            <dl class="layui-nav-child layui-nav-child1">
               <dd>
                 <a href="./article/art_cate.html" target="fm"><i class="layui-icon layui-icon-app"></i>文章类别</a>
               </dd>
-              <dd>
+              <dd class="dd2">
                 <a href="./article/art_list.html" target="fm"><i class="layui-icon layui-icon-app"></i>文章列表</a>
               </dd>
-              <dd>
+              <dd class="dd3">
                 <a href="./article/art_pub.html" target="fm"><i class="layui-icon layui-icon-app"></i>发布文章</a>
               </dd>
             </dl>
@@ -89,7 +90,7 @@
 
     <!-- 内容主体区域 -->
     <div class="layui-body">
-      <!-- !!! 后续a标签中target的属性值若为fm，则在此处打开页面 -->
+      <!-- !!! 后续a标签中target的属性值若为fm，则在此处打开页面，也就是在主页中的右下角那一大片区域打开，而不是直接打开整个页面 -->
       <iframe name="fm" src="./home/dashboard.html" frameborder="0"></iframe>
     </div>
 

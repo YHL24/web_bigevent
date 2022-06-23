@@ -18,7 +18,8 @@
     <div class="layui-card-body">
       <!-- form 表单区域 -->
       <form class="layui-form" lay-filter="formUserInfo">
-        <!-- !!! 由于发送 GET 请求获取用户基本信息需要提供id，所以提交的表单数据需要有id，这时候可以用隐藏域 -->
+        <!-- !!! 由于发送 GET 请求获取用户基本信息需要提供id，但是我们的id是通过Token字符串解析出来的，而不是用表单传递的
+             !!! 所以这时候可以时用隐藏域，传递一个空的id值即可 -->
         <!-- !!! 这是隐藏域：在页面中看不到这个文本框 -->
         <input type="hidden" name="id" value="" />
         <div class="layui-form-item">
